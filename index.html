@@ -608,12 +608,14 @@
     .gc-reel-w::before,.gc-reel-w::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
     .gc-reel-w::before{left:0;background:linear-gradient(to right,#0d0b06,transparent)}
     .gc-reel-w::after{right:0;background:linear-gradient(to left,#0d0b06,transparent)}
-    .gc-reel{display:flex;width:max-content;will-change:transform}
-    .gc-reel-1{animation:gc-scroll-l 36s linear infinite}
-    .gc-reel-2{animation:gc-scroll-r 42s linear infinite}
-    .gc-reel-w:hover .gc-reel{animation-play-state:paused}
-    @keyframes gc-scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    @keyframes gc-scroll-r{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+    .gc-reel{display:flex;width:max-content;-webkit-transform:translateZ(0);transform:translateZ(0)}
+    .gc-reel-1{-webkit-animation:gc-scroll-l 36s linear infinite;animation:gc-scroll-l 36s linear infinite}
+    .gc-reel-2{-webkit-animation:gc-scroll-r 42s linear infinite;animation:gc-scroll-r 42s linear infinite}
+    .gc-reel-w:hover .gc-reel{-webkit-animation-play-state:paused;animation-play-state:paused}
+    @-webkit-keyframes gc-scroll-l{0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}100%{-webkit-transform:translate3d(-50%,0,0);transform:translate3d(-50%,0,0)}}
+    @keyframes gc-scroll-l{0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}100%{-webkit-transform:translate3d(-50%,0,0);transform:translate3d(-50%,0,0)}}
+    @-webkit-keyframes gc-scroll-r{0%{-webkit-transform:translate3d(-50%,0,0);transform:translate3d(-50%,0,0)}100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}
+    @keyframes gc-scroll-r{0%{-webkit-transform:translate3d(-50%,0,0);transform:translate3d(-50%,0,0)}100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}
     .gc-card{position:relative;width:380px;height:270px;flex-shrink:0;overflow:hidden;margin-right:18px;cursor:pointer;border:1px solid rgba(184,146,42,.18)}
     .gc-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease-ql),filter .7s}
     .gc-card::before,.gc-card::after{content:'';position:absolute;z-index:2;pointer-events:none;transition:opacity .4s,width .4s,height .4s}
