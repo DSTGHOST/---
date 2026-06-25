@@ -1856,6 +1856,23 @@ function playVideo() {
     'https://www.youtube-nocookie.com/embed/RhMyHQvDJwg?autoplay=1&rel=0&modestbranding=1&playsinline=1';
 }
 
+// Auto-play video when scrolled into view
+(function(){
+  var triggered = false;
+  var target = document.getElementById('videoThumb');
+  if (!target) return;
+  var autoObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !triggered) {
+        triggered = true;
+        autoObs.disconnect();
+        playVideo();
+      }
+    });
+  }, { threshold: 0.5 });
+  autoObs.observe(target);
+})();
+
 // ── WA SCROLL
 function scrollWa(dir) {
   var track = document.getElementById('waTrack');
