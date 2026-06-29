@@ -2031,13 +2031,9 @@ function handleSubmit(e){
     mode: 'no-cors',
     body: JSON.stringify({ name: name, phone: phone, city: city, message: message })
   }).then(function() {
-    btn.textContent = 'תודה! אחזור אלייך בקרוב ✓';
-    btn.style.background = 'linear-gradient(135deg,#25D366,#128C7E)';
-    form.reset();
+    window.location.href = 'thank-you.html';
   }).catch(function() {
-    btn.textContent = 'תודה! אחזור אלייך בקרוב ✓';
-    btn.style.background = 'linear-gradient(135deg,#25D366,#128C7E)';
-    form.reset();
+    window.location.href = 'thank-you.html';
   });
 }
 </script>
