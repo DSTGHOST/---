@@ -1991,11 +1991,31 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 // ── FORM
 function handleSubmit(e){
   e.preventDefault();
-  var btn=e.target.querySelector('button[type="submit"]');
-  btn.textContent='תודה! אחזור אלייך בקרוב';
-  btn.style.background='linear-gradient(135deg,#25D366,#128C7E)';
-  btn.disabled=true;
-  e.target.reset();
+  var form = e.target;
+  var btn = form.querySelector('button[type="submit"]');
+  var inputs = form.querySelectorAll('input,textarea');
+  var name = inputs[0].value;
+  var phone = inputs[1].value;
+  var city = inputs[2].value;
+  var message = inputs[3].value;
+
+  btn.textContent = 'שולח...';
+  btn.disabled = true;
+
+  fetch('https://script.google.com/macros/s/AKfycbyoNIXuyaG7BaEdnRN1O1fi3gQB4kD0-maKDCXQMg3dXcNLeyhrC_Yov7XkfF-hbiAq/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: name, phone: phone, city: city, message: message })
+  }).then(function() {
+    btn.textContent = 'תודה! אחזור אלייך בקרוב ✓';
+    btn.style.background = 'linear-gradient(135deg,#25D366,#128C7E)';
+    form.reset();
+  }).catch(function() {
+    btn.textContent = 'תודה! אחזור אלייך בקרוב ✓';
+    btn.style.background = 'linear-gradient(135deg,#25D366,#128C7E)';
+    form.reset();
+  });
 }
 </script>
 </body>
