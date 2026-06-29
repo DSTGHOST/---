@@ -172,8 +172,8 @@
     .video-play-btn:hover .play-circle{transform:scale(1.1)}
     .play-circle svg{margin-right:-4px}
     .video-iframe-wrap{display:none;justify-content:center;margin-top:52px}
-    .video-iframe-inner{position:relative;padding-top:177.78%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.5);width:100%;max-width:400px}
-    .video-iframe-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+    .video-iframe-inner{position:relative;padding-top:177.78%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.5);width:100%;max-width:400px;flex-shrink:0}
+    .video-iframe-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
 
     /* ── STORY ── */
     .story-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:center}
@@ -1392,7 +1392,7 @@
       </div>
     </div>
     <!-- Actual iframe (hidden until click) -->
-    <div class="video-iframe-wrap" id="videoIframe">
+    <div class="video-iframe-wrap" id="videoIframe" style="max-width:400px;margin-left:auto;margin-right:auto;width:100%">
       <div class="video-iframe-inner">
         <iframe id="ytFrame"
           src=""
@@ -1856,8 +1856,8 @@ function playVideo() {
     'https://www.youtube-nocookie.com/embed/RhMyHQvDJwg?autoplay=1&rel=0&modestbranding=1&playsinline=1';
 }
 
-// Auto-play video when scrolled into view
-(function(){
+// Auto-play video when scrolled into view — wait for full page load
+window.addEventListener('load', function() {
   var triggered = false;
   var target = document.getElementById('videoThumb');
   if (!target) return;
@@ -1866,12 +1866,12 @@ function playVideo() {
       if (e.isIntersecting && !triggered) {
         triggered = true;
         autoObs.disconnect();
-        playVideo();
+        setTimeout(playVideo, 300);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.6 });
   autoObs.observe(target);
-})();
+});
 
 // ── WA SCROLL
 function scrollWa(dir) {
@@ -1992,8 +1992,15 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 function handleSubmit(e){
   e.preventDefault();
   var form = e.target;
+  var checkbox = form.querySelector('input[type="checkbox"]');
+  if (!checkbox.checked) {
+    checkbox.closest('label').style.color = '#e53e3e';
+    checkbox.focus();
+    return;
+  }
+  checkbox.closest('label').style.color = '';
   var btn = form.querySelector('button[type="submit"]');
-  var inputs = form.querySelectorAll('input,textarea');
+  var inputs = form.querySelectorAll('input[type="text"],input[type="tel"],textarea');
   var name = inputs[0].value;
   var phone = inputs[1].value;
   var city = inputs[2].value;
