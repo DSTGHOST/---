@@ -2005,7 +2005,6 @@ function handleSubmit(e){
   fetch('https://script.google.com/macros/s/AKfycbyoNIXuyaG7BaEdnRN1O1fi3gQB4kD0-maKDCXQMg3dXcNLeyhrC_Yov7XkfF-hbiAq/exec', {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name: name, phone: phone, city: city, message: message })
   }).then(function() {
     btn.textContent = 'תודה! אחזור אלייך בקרוב ✓';
