@@ -1533,20 +1533,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ══ INLINE FORM 1 ══ -->
-<section class="section-dark" style="padding:80px 0">
-  <div class="container" style="max-width:560px">
-    <div class="form-card fade" style="background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.25)">
-      <p style="font-family:'Assistant',sans-serif;font-size:1.6rem;font-weight:700;color:var(--gold);text-align:center;margin-bottom:8px;line-height:1.4">השקעה קטנה שתכניס לך את כל השפע לבית שלך!</p>
-      <div class="form-s" style="text-align:center;margin-bottom:24px;color:rgba(255,255,255,.7)">צרי קשר עוד היום</div>
-      <form onsubmit="handleSubmit(event)">
-        <div class="form-g"><label class="form-lbl" style="color:rgba(255,255,255,.8)">שם מלא *</label><input type="text" class="form-inp" placeholder="השם שלך" required /></div>
-        <div class="form-g"><label class="form-lbl" style="color:rgba(255,255,255,.8)">טלפון *</label><input type="tel" class="form-inp" placeholder="050-0000000" required /></div>
-        <div class="form-g"><label class="form-lbl" style="color:rgba(255,255,255,.8)">עיר מגורים</label><input type="text" class="form-inp" placeholder="איפה את גרה?" /></div>
-        <div class="form-g"><label class="form-lbl" style="color:rgba(255,255,255,.8)">מה הכי חשוב לך לשדרג?</label><textarea class="form-ta" placeholder="ספרי לי קצת על הבית שלך..."></textarea></div>
-        <label class="form-chk" style="color:rgba(255,255,255,.7)"><input type="checkbox" required />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold);text-decoration:underline">מדיניות הפרטיות</a></label>
-        <button type="submit" class="btn btn-gold form-btn">שלחי — אני רוצה בית חלומי!</button>
-      </form>
+<section style="padding:72px 24px;background:linear-gradient(135deg,#0d0b06 0%,#1a1308 100%);position:relative;overflow:hidden">
+  <div style="position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.08),transparent 65%);pointer-events:none"></div>
+  <div style="max-width:480px;margin:0 auto;position:relative">
+    <div style="text-align:center;margin-bottom:32px">
+      <div style="display:inline-block;width:40px;height:2px;background:linear-gradient(90deg,transparent,var(--gold));vertical-align:middle;margin-left:12px"></div>
+      <span style="font-family:'Secular One',sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase">צרי קשר עוד היום</span>
+      <div style="display:inline-block;width:40px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);vertical-align:middle;margin-right:12px"></div>
     </div>
+    <h2 style="font-family:'Secular One',sans-serif;font-size:clamp(1.4rem,3.5vw,2rem);color:#fff;text-align:center;margin-bottom:36px;line-height:1.4">השקעה קטנה שתכניס לך<br><span style="color:var(--gold)">את כל השפע לבית שלך!</span></h2>
+    <form onsubmit="handleSubmitShort(event)" style="display:flex;flex-direction:column;gap:14px">
+      <div style="position:relative">
+        <input type="text" placeholder="שם מלא *" required style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:16px 20px;color:#fff;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.8)'" onblur="this.style.borderColor='rgba(201,168,76,.3)'" />
+      </div>
+      <div style="position:relative">
+        <input type="tel" placeholder="טלפון *" required style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:16px 20px;color:#fff;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.8)'" onblur="this.style.borderColor='rgba(201,168,76,.3)'" />
+      </div>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.85rem;color:rgba(255,255,255,.55)"><input type="checkbox" required style="accent-color:var(--gold);width:16px;height:16px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold);text-decoration:underline">מדיניות הפרטיות</a></label>
+      <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:1.05rem;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(201,168,76,.3)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 36px rgba(201,168,76,.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(201,168,76,.3)'">שלחי — אני רוצה בית חלומי!</button>
+    </form>
   </div>
 </section>
 
@@ -1734,20 +1739,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ══ INLINE FORM 2 ══ -->
-<section class="section-alt" style="padding:80px 0">
-  <div class="container" style="max-width:560px">
-    <div class="form-card fade">
-      <p style="font-family:'Assistant',sans-serif;font-size:1.6rem;font-weight:700;color:var(--gold-d);text-align:center;margin-bottom:8px;line-height:1.4">השקעה קטנה שתכניס לך את כל השפע לבית שלך!</p>
-      <div class="form-s" style="text-align:center;margin-bottom:24px">צרי קשר עוד היום</div>
-      <form onsubmit="handleSubmit(event)">
-        <div class="form-g"><label class="form-lbl">שם מלא *</label><input type="text" class="form-inp" placeholder="השם שלך" required /></div>
-        <div class="form-g"><label class="form-lbl">טלפון *</label><input type="tel" class="form-inp" placeholder="050-0000000" required /></div>
-        <div class="form-g"><label class="form-lbl">עיר מגורים</label><input type="text" class="form-inp" placeholder="איפה את גרה?" /></div>
-        <div class="form-g"><label class="form-lbl">מה הכי חשוב לך לשדרג?</label><textarea class="form-ta" placeholder="ספרי לי קצת על הבית שלך..."></textarea></div>
-        <label class="form-chk"><input type="checkbox" required />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold-d);text-decoration:underline">מדיניות הפרטיות</a></label>
-        <button type="submit" class="btn btn-gold form-btn">שלחי — אני רוצה בית חלומי!</button>
-      </form>
+<section style="padding:72px 24px;background:var(--linen);position:relative;overflow:hidden">
+  <div style="position:absolute;bottom:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,.07),transparent 65%);pointer-events:none"></div>
+  <div style="max-width:480px;margin:0 auto;position:relative">
+    <div style="text-align:center;margin-bottom:32px">
+      <div style="display:inline-block;width:40px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-d));vertical-align:middle;margin-left:12px"></div>
+      <span style="font-family:'Secular One',sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--gold-d);text-transform:uppercase">צרי קשר עוד היום</span>
+      <div style="display:inline-block;width:40px;height:2px;background:linear-gradient(90deg,var(--gold-d),transparent);vertical-align:middle;margin-right:12px"></div>
     </div>
+    <h2 style="font-family:'Secular One',sans-serif;font-size:clamp(1.4rem,3.5vw,2rem);color:#1a1710;text-align:center;margin-bottom:36px;line-height:1.4">השקעה קטנה שתכניס לך<br><span style="color:var(--gold-d)">את כל השפע לבית שלך!</span></h2>
+    <form onsubmit="handleSubmitShort(event)" style="display:flex;flex-direction:column;gap:14px">
+      <input type="text" placeholder="שם מלא *" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
+      <input type="tel" placeholder="טלפון *" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.85rem;color:#666"><input type="checkbox" required style="accent-color:var(--gold-d);width:16px;height:16px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold-d);text-decoration:underline">מדיניות הפרטיות</a></label>
+      <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:1.05rem;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(168,134,46,.25)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 36px rgba(168,134,46,.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(168,134,46,.25)'">שלחי — אני רוצה בית חלומי!</button>
+    </form>
   </div>
 </section>
 
@@ -2036,6 +2042,25 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 });
 
 // ── FORM
+function handleSubmitShort(e){
+  e.preventDefault();
+  var form = e.target;
+  var checkbox = form.querySelector('input[type="checkbox"]');
+  if (!checkbox.checked) { checkbox.closest('label').style.color='#e53e3e'; checkbox.focus(); return; }
+  checkbox.closest('label').style.color='';
+  var btn = form.querySelector('button[type="submit"]');
+  var inputs = form.querySelectorAll('input[type="text"],input[type="tel"]');
+  var name = inputs[0].value;
+  var phone = inputs[1].value;
+  btn.textContent = 'שולח...';
+  btn.disabled = true;
+  var payload = JSON.stringify({ name: name, phone: phone, city: '', message: '' });
+  Promise.allSettled([
+    fetch('https://hook.eu2.make.com/6zmegyh7cuhr8vto548jnkwtak5iyebp', { method:'POST', mode:'no-cors', body:payload }),
+    fetch('https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec', { method:'POST', mode:'no-cors', body:payload })
+  ]).then(function(){ window.location.href='thank-you.html'; });
+}
+
 function handleSubmit(e){
   e.preventDefault();
   var form = e.target;
