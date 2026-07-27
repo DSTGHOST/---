@@ -448,17 +448,17 @@
     .float-wa:hover{transform:scale(1.12)}
     @keyframes wapulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45)}50%{box-shadow:0 6px 44px rgba(37,211,102,.7)}}
 
-    /* ── כפתור נגישות (תקן ישראלי 5568) ── */
+    /* ── תפריט נגישות (תקן ישראלי 5568) ── */
     .a11y-btn{
-      position:fixed;bottom:94px;left:26px;z-index:300;
+      position:fixed;bottom:94px;left:26px;z-index:400;
       width:58px;height:58px;
       background:#1565C0;
       border-radius:50%;
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 4px 18px rgba(21,101,192,.5);
       transition:transform .3s,box-shadow .3s;
-      text-decoration:none;
-      border:3px solid #fff
+      border:3px solid #fff;
+      cursor:pointer
     }
     .a11y-btn:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(21,101,192,.65)}
     .a11y-btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
@@ -466,6 +466,83 @@
       .a11y-btn{width:50px;height:50px;bottom:80px;left:14px}
       .a11y-btn svg{width:26px;height:26px}
     }
+
+    /* ── פאנל נגישות ── */
+    .a11y-panel{
+      position:fixed;bottom:164px;left:20px;z-index:500;
+      width:290px;
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 8px 40px rgba(0,0,0,.22);
+      font-family:'Assistant',sans-serif;
+      direction:rtl;
+      overflow:hidden;
+      transform:scale(.92) translateY(12px);
+      transform-origin:bottom left;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease,transform .25s ease
+    }
+    .a11y-panel.open{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
+    .a11y-panel-header{
+      background:#1a1a1a;color:#fff;
+      padding:16px 18px;
+      display:flex;align-items:center;justify-content:space-between
+    }
+    .a11y-panel-header h3{font-size:1rem;font-weight:700;margin:0}
+    .a11y-close{background:none;border:none;color:#fff;cursor:pointer;font-size:1.3rem;line-height:1;padding:2px 6px}
+    .a11y-close:focus-visible{outline:2px solid #fff;border-radius:4px}
+    .a11y-panel-body{padding:14px 16px}
+    .a11y-section-title{font-size:.75rem;color:#888;font-weight:600;letter-spacing:.06em;margin:8px 0 8px;text-transform:uppercase}
+    .a11y-font-row{display:flex;gap:8px;margin-bottom:14px}
+    .a11y-font-btn{
+      flex:1;height:40px;border:1.5px solid #ddd;border-radius:10px;
+      background:#f8f8f8;cursor:pointer;font-family:'Assistant',sans-serif;
+      font-weight:700;transition:background .15s,border-color .15s
+    }
+    .a11y-font-btn:hover{background:#e8f0fe;border-color:#1565C0}
+    .a11y-font-btn.active{background:#1565C0;color:#fff;border-color:#1565C0}
+    .a11y-font-btn:focus-visible{outline:2px solid #1565C0;outline-offset:2px}
+    .a11y-toggle-row{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 0;border-bottom:1px solid #f0f0f0
+    }
+    .a11y-toggle-row:last-of-type{border-bottom:none}
+    .a11y-toggle-label{font-size:.9rem;color:#222;font-weight:600}
+    .a11y-switch{position:relative;width:42px;height:24px;flex-shrink:0}
+    .a11y-switch input{opacity:0;width:0;height:0}
+    .a11y-slider{
+      position:absolute;inset:0;background:#ccc;border-radius:24px;
+      cursor:pointer;transition:background .2s
+    }
+    .a11y-slider:before{
+      content:'';position:absolute;width:18px;height:18px;
+      left:3px;bottom:3px;background:#fff;border-radius:50%;
+      transition:transform .2s
+    }
+    .a11y-switch input:checked+.a11y-slider{background:#1565C0}
+    .a11y-switch input:checked+.a11y-slider:before{transform:translateX(18px)}
+    .a11y-switch input:focus-visible+.a11y-slider{outline:2px solid #1565C0;outline-offset:2px}
+    .a11y-reset{
+      width:100%;margin-top:14px;padding:10px;
+      background:#f5f5f5;border:1.5px solid #ddd;border-radius:10px;
+      font-family:'Assistant',sans-serif;font-size:.9rem;font-weight:700;
+      cursor:pointer;transition:background .15s
+    }
+    .a11y-reset:hover{background:#e8e8e8}
+    .a11y-reset:focus-visible{outline:2px solid #1565C0;outline-offset:2px}
+    .a11y-stmt-link{
+      display:block;text-align:center;margin-top:10px;
+      color:#1565C0;font-size:.82rem;text-decoration:underline
+    }
+
+    /* ── אפקטי נגישות ── */
+    body.a11y-high-contrast{filter:contrast(1.6) brightness(1.05)}
+    body.a11y-no-anim *{animation:none!important;transition:none!important}
+    body.a11y-links a:not(.a11y-btn):not(.float-wa):not(.btn){
+      text-decoration:underline!important;outline:2px dashed #1565C0;outline-offset:2px
+    }
+    body.a11y-big-cursor,body.a11y-big-cursor *{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 3l19 12-8 2-4 9z' fill='black' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 0 0,auto!important}
 
     /* ── ANIMATE ── */
     .fade{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease-ql),transform 1s var(--ease-ql)}
@@ -1267,19 +1344,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- SKIP LINK -->
 <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
 
-<!-- כפתור נגישות — תקן ישראלי 5568 -->
-<a href="accessibility.html" class="a11y-btn" aria-label="הצהרת נגישות האתר">
+<!-- פאנל נגישות — תקן ישראלי 5568 -->
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="true" aria-label="אפשרויות נגישות">
+  <div class="a11y-panel-header">
+    <h3>נגישות</h3>
+    <button class="a11y-close" onclick="closeA11y()" aria-label="סגור תפריט נגישות">✕</button>
+  </div>
+  <div class="a11y-panel-body">
+    <div class="a11y-section-title">גודל טקסט</div>
+    <div class="a11y-font-row">
+      <button class="a11y-font-btn" style="font-size:.78rem" onclick="setFont(0)" id="fs0" aria-label="גודל טקסט קטן">א</button>
+      <button class="a11y-font-btn" style="font-size:.92rem" onclick="setFont(1)" id="fs1" aria-label="גודל טקסט רגיל">א</button>
+      <button class="a11y-font-btn" style="font-size:1.08rem" onclick="setFont(2)" id="fs2" aria-label="גודל טקסט גדול">א</button>
+      <button class="a11y-font-btn active" style="font-size:1.22rem" onclick="setFont(3)" id="fs3" aria-label="גודל טקסט גדול מאוד">א</button>
+    </div>
+
+    <div class="a11y-toggle-row">
+      <span class="a11y-toggle-label">ניגודיות גבוהה</span>
+      <label class="a11y-switch"><input type="checkbox" id="tgContrast" onchange="toggleClass('a11y-high-contrast',this)"><span class="a11y-slider"></span></label>
+    </div>
+    <div class="a11y-toggle-row">
+      <span class="a11y-toggle-label">עצירת אנימציות</span>
+      <label class="a11y-switch"><input type="checkbox" id="tgAnim" onchange="toggleClass('a11y-no-anim',this)"><span class="a11y-slider"></span></label>
+    </div>
+    <div class="a11y-toggle-row">
+      <span class="a11y-toggle-label">הדגשת קישורים</span>
+      <label class="a11y-switch"><input type="checkbox" id="tgLinks" onchange="toggleClass('a11y-links',this)"><span class="a11y-slider"></span></label>
+    </div>
+    <div class="a11y-toggle-row">
+      <span class="a11y-toggle-label">סמן עכבר מוגדל</span>
+      <label class="a11y-switch"><input type="checkbox" id="tgCursor" onchange="toggleClass('a11y-big-cursor',this)"><span class="a11y-slider"></span></label>
+    </div>
+
+    <button class="a11y-reset" onclick="resetA11y()">איפוס הגדרות</button>
+    <a href="accessibility.html" class="a11y-stmt-link">לצהרת הנגישות המלאה</a>
+  </div>
+</div>
+
+<!-- כפתור נגישות -->
+<button class="a11y-btn" id="a11yBtn" onclick="toggleA11y()" aria-label="פתיחת תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
   <svg width="32" height="32" viewBox="0 0 100 100" fill="white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-    <!-- ראש -->
     <circle cx="50" cy="14" r="10"/>
-    <!-- גוף וידיים -->
     <path d="M50 26 L50 58 M30 36 L70 36" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <!-- כיסא גלגלים -->
     <path d="M50 58 L50 72 L68 72" stroke="white" stroke-width="9" stroke-linecap="round" fill="none"/>
     <circle cx="68" cy="82" r="9" stroke="white" stroke-width="7" fill="none"/>
     <circle cx="37" cy="82" r="9" stroke="white" stroke-width="7" fill="none"/>
   </svg>
-</a>
+</button>
 
 <!-- FLOATING WA -->
 <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="float-wa" target="_blank" aria-label="פתיחת שיחת WhatsApp עם גל זרחי">
@@ -1945,6 +2056,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 // ── FAQ
+/* ── נגישות ── */
+var fontSizes=[null,'112%','125%','140%'];
+var currentFont=0;
+function toggleA11y(){
+  var p=document.getElementById('a11yPanel');
+  var b=document.getElementById('a11yBtn');
+  var isOpen=p.classList.toggle('open');
+  b.setAttribute('aria-expanded',isOpen);
+  if(isOpen){setTimeout(function(){p.querySelector('.a11y-close').focus()},50);}
+}
+function closeA11y(){
+  document.getElementById('a11yPanel').classList.remove('open');
+  document.getElementById('a11yBtn').setAttribute('aria-expanded','false');
+  document.getElementById('a11yBtn').focus();
+}
+function setFont(idx){
+  document.querySelectorAll('.a11y-font-btn').forEach(function(b,i){b.classList.toggle('active',i===idx);});
+  if(idx===0){document.documentElement.style.fontSize='';}
+  else{document.documentElement.style.fontSize=fontSizes[idx];}
+  currentFont=idx;
+  saveA11y();
+}
+function toggleClass(cls,el){
+  document.body.classList.toggle(cls,el.checked);
+  saveA11y();
+}
+function resetA11y(){
+  ['a11y-high-contrast','a11y-no-anim','a11y-links','a11y-big-cursor'].forEach(function(c){document.body.classList.remove(c);});
+  document.querySelectorAll('#a11yPanel input[type=checkbox]').forEach(function(i){i.checked=false;});
+  document.documentElement.style.fontSize='';
+  document.querySelectorAll('.a11y-font-btn').forEach(function(b,i){b.classList.toggle('active',i===0);});
+  currentFont=0;
+  localStorage.removeItem('a11yPrefs');
+}
+function saveA11y(){
+  localStorage.setItem('a11yPrefs',JSON.stringify({
+    font:currentFont,
+    contrast:document.getElementById('tgContrast').checked,
+    anim:document.getElementById('tgAnim').checked,
+    links:document.getElementById('tgLinks').checked,
+    cursor:document.getElementById('tgCursor').checked
+  }));
+}
+(function loadA11y(){
+  try{
+    var p=JSON.parse(localStorage.getItem('a11yPrefs')||'{}');
+    if(p.font){setFont(p.font);}
+    if(p.contrast){document.getElementById('tgContrast').checked=true;document.body.classList.add('a11y-high-contrast');}
+    if(p.anim){document.getElementById('tgAnim').checked=true;document.body.classList.add('a11y-no-anim');}
+    if(p.links){document.getElementById('tgLinks').checked=true;document.body.classList.add('a11y-links');}
+    if(p.cursor){document.getElementById('tgCursor').checked=true;document.body.classList.add('a11y-big-cursor');}
+  }catch(e){}
+})();
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeA11y();
+});
+document.addEventListener('click',function(e){
+  var panel=document.getElementById('a11yPanel');
+  var btn=document.getElementById('a11yBtn');
+  if(panel.classList.contains('open')&&!panel.contains(e.target)&&!btn.contains(e.target)){closeA11y();}
+});
+
 function toggleFaq(btn) {
   var item = btn.closest('.faq-item');
   var isOpen = item.classList.contains('open');
