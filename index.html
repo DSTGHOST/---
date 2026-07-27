@@ -57,6 +57,14 @@
     html{scroll-behavior:smooth;overflow-x:hidden}
     body{background:var(--cream);color:var(--navy);font-family:'Assistant',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden;width:100%;letter-spacing:.025em}
     @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;animation-iteration-count:1!important}}
+
+    /* ── ACCESSIBILITY ── */
+    .skip-link{position:absolute;top:-120px;right:0;background:var(--gold-d);color:#fff;padding:14px 24px;font-family:'Assistant',sans-serif;font-size:.95rem;font-weight:700;z-index:9999;border-radius:0 0 var(--r-sm) var(--r-sm);transition:top .2s;text-decoration:none;white-space:nowrap}
+    .skip-link:focus{top:0;outline:3px solid var(--gold);outline-offset:2px}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+    .btn:focus-visible,.float-wa:focus-visible{outline:2px solid var(--gold-l);outline-offset:4px}
+    .faq-q:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+    .wa-arr:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
     .container{max-width:1160px;margin:0 auto;padding:0 24px}
@@ -1237,29 +1245,33 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- SKIP LINK -->
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
 <!-- FLOATING WA -->
-<a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="float-wa" target="_blank" aria-label="WhatsApp">
+<a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="float-wa" target="_blank" aria-label="פתיחת שיחת WhatsApp עם גל זרחי">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <!-- ══ HEADER ══ -->
-<header class="header">
+<header class="header" role="banner">
   <div class="container header-inner">
     <div class="logo">
       <div class="logo-text">גל זרחי | <span>מעצבת פנים</span></div>
     </div>
-    <div class="header-actions">
+    <nav class="header-actions" aria-label="ניווט ראשי">
       <a href="#contact" class="btn btn-outline btn-outline" style="padding:9px 20px;font-size:.86rem">השאירי פרטים</a>
       <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-wa" style="padding:9px 20px;font-size:.86rem" target="_blank">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
-    </div>
+    </nav>
   </div>
 </header>
 
+<main id="main-content">
 <!-- ══ HERO — CINEMATIC ══ -->
-<section class="hero">
+<section class="hero" aria-label="כותרת ראשית — יום מייקאובר לבית">
   <div class="hero-bg">
     <img src="gal.jpg" alt="בית מעוצב לאחר יום מייקאובר עם גל זרחי" loading="eager" fetchpriority="high" />
   </div>
@@ -1271,24 +1283,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h1>
     <p class="hero-sub-cin hr-anim hr-d4">עם צוות שלם שמטפל בכל העיצוב עד לשלמות — גם בשכירות, גם אחרי שיפוץ, וגם בבית חדש. <strong>חוסכת 20,000 ₪ בממוצע</strong></p>
     <div class="hero-ctas-cin hr-anim hr-d5">
-      <a href="#pricing" class="btn btn-gold btn-lg">אני רוצה בית חדש</a>
       <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-outline-w btn-lg" target="_blank">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         שלחי הודעה
       </a>
     </div>
     <!-- Hero inline form -->
-    <form onsubmit="handleSubmitShort(event)" class="hr-anim hr-d5" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;max-width:380px;margin-left:auto;margin-right:auto">
-      <input type="text" placeholder="שם מלא *" required style="width:100%;background:rgba(13,11,6,.7);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,.35);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Assistant',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.9)'" onblur="this.style.borderColor='rgba(201,168,76,.35)'" />
-      <input type="tel" placeholder="טלפון *" required style="width:100%;background:rgba(13,11,6,.7);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,.35);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Assistant',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.9)'" onblur="this.style.borderColor='rgba(201,168,76,.35)'" />
+    <form onsubmit="handleSubmitShort(event)" class="hr-anim hr-d5" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;max-width:380px;margin-left:auto;margin-right:auto" aria-label="טופס השארת פרטים">
+      <input type="text" placeholder="שם מלא *" aria-label="שם מלא" required style="width:100%;background:rgba(13,11,6,.7);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,.35);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Assistant',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.9)'" onblur="this.style.borderColor='rgba(201,168,76,.35)'" />
+      <input type="tel" placeholder="טלפון *" aria-label="מספר טלפון" required style="width:100%;background:rgba(13,11,6,.7);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,.35);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Assistant',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.9)'" onblur="this.style.borderColor='rgba(201,168,76,.35)'" />
       <label style="width:100%;display:flex;align-items:center;gap:7px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.78rem;color:rgba(255,255,255,.5)"><input type="checkbox" required style="accent-color:var(--gold);width:14px;height:14px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold);text-decoration:underline">מדיניות הפרטיות</a></label>
       <button type="submit" style="width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:.95rem;border:none;border-radius:10px;padding:13px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 20px rgba(201,168,76,.3)" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">שלחי — אני רוצה בית חלומי!</button>
     </form>
   </div>
-  <div class="hero-stat-bar hr-anim hr-d6">
-    <div class="hsb-item"><div class="hsb-n" data-count="500" data-suffix="+">0</div><div class="hsb-l">בתים בישראל</div></div>
-    <div class="hsb-item"><div class="hsb-n" data-count="8" data-suffix="h">0</div><div class="hsb-l">ביום אחד בלבד</div></div>
-    <div class="hsb-item"><div class="hsb-n" data-count="20" data-suffix="K ₪">0</div><div class="hsb-l">חיסכון ממוצע</div></div>
+  <div class="hero-stat-bar hr-anim hr-d6" aria-label="נתוני שירות">
+    <div class="hsb-item"><div class="hsb-n" data-count="500" data-suffix="+" aria-label="מעל 500 בתים בישראל">0</div><div class="hsb-l" aria-hidden="true">בתים בישראל</div></div>
+    <div class="hsb-item"><div class="hsb-n" data-count="8" data-suffix="h" aria-label="8 שעות ביום אחד בלבד">0</div><div class="hsb-l" aria-hidden="true">ביום אחד בלבד</div></div>
+    <div class="hsb-item"><div class="hsb-n" data-count="20" data-suffix="K ₪" aria-label="חיסכון ממוצע של 20,000 שקל">0</div><div class="hsb-l" aria-hidden="true">חיסכון ממוצע</div></div>
   </div>
 </section>
 
@@ -1301,7 +1312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ══ BEFORE / AFTER — ראשון ══ -->
-<section class="section-alt has-num" id="results">
+<section class="section-alt has-num" id="results" aria-label="תוצאות לפני ואחרי">
   <div class="section-num">01</div>
   <div class="container">
     <div class="center fade">
@@ -1397,12 +1408,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Thumbnail click-to-play -->
     <div class="video-container fade">
-      <div class="video-wrap-outer" id="videoThumb" onclick="playVideo()">
+      <div class="video-wrap-outer" id="videoThumb" onclick="playVideo()" role="button" tabindex="0" aria-label="לחצי להפעלת הסרטון" onkeydown="if(event.key==='Enter'||event.key===' ')playVideo()">
         <img class="video-thumb"
           src="https://img.youtube.com/vi/RhMyHQvDJwg/maxresdefault.jpg"
-          alt="לחצי לצפייה בעדויות"
+          alt="תמונת פרקדיסיית לסרטון עדויות לקוחות"
           onerror="this.src='https://img.youtube.com/vi/RhMyHQvDJwg/hqdefault.jpg'" />
-        <div class="video-play-btn">
+        <div class="video-play-btn" aria-hidden="true">
           <div class="play-circle">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
           </div>
@@ -1654,30 +1665,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <!-- MARQUEE — auto-scroll, no manual nav needed -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
+  <div class="marquee-wrap" aria-label="המלצות לקוחות בוואטסאפ" role="region">
+    <div class="marquee-track" aria-hidden="true">
       <!-- First set -->
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="המלצה" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="" loading="lazy"/></div>
       <!-- Duplicate set for seamless loop -->
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="המלצה" loading="lazy"/></div>
-      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="המלצה" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/ff541227d79233c61674b4c904e3cbee.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/4f9f2bdc098ad24b418cf4fae3ff6bba.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/508a8898456eb327dd38ce46010dc8d2.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/a78853fe739500782a7c80bc574617df.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-card"><img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/ea/fa/b0/2e/eafab02e3a83492c1eea49416954e9b4/images/5b4afd479f5ff5afad48114ecc452c00.jpg" alt="" loading="lazy"/></div>
     </div>
   </div>
   <div class="container" style="margin-top:40px">
@@ -1688,7 +1699,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ══ PRICING ══ -->
-<section class="pricing-section section-dark" id="pricing">
+<section class="pricing-section section-dark" id="pricing" aria-label="מחירים">
   <div class="container">
     <div class="center fade">
       <div class="badge badge-dark">מחיר מיוחד</div>
@@ -1755,9 +1766,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="display:inline-block;width:40px;height:2px;background:linear-gradient(90deg,var(--gold-d),transparent);vertical-align:middle;margin-right:12px"></div>
     </div>
     <h2 style="font-family:'Secular One',sans-serif;font-size:clamp(1.4rem,3.5vw,2rem);color:#1a1710;text-align:center;margin-bottom:36px;line-height:1.4">השקעה קטנה שתכניס לך<br><span style="color:var(--gold-d)">את כל השפע לבית שלך!</span></h2>
-    <form onsubmit="handleSubmitShort(event)" style="display:flex;flex-direction:column;gap:14px">
-      <input type="text" placeholder="שם מלא *" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
-      <input type="tel" placeholder="טלפון *" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
+    <form onsubmit="handleSubmitShort(event)" style="display:flex;flex-direction:column;gap:14px" aria-label="טופס השארת פרטים">
+      <input type="text" placeholder="שם מלא *" aria-label="שם מלא" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
+      <input type="tel" placeholder="טלפון *" aria-label="מספר טלפון" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
       <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.85rem;color:#666"><input type="checkbox" required style="accent-color:var(--gold-d);width:16px;height:16px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold-d);text-decoration:underline">מדיניות הפרטיות</a></label>
       <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:1.05rem;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(168,134,46,.25)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 36px rgba(168,134,46,.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(168,134,46,.25)'">שלחי — אני רוצה בית חלומי!</button>
     </form>
@@ -1772,30 +1783,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="h2">יש לך שאלות? יש לנו תשובות</h2>
       <div class="divider"></div>
     </div>
-    <div class="faq-list flip">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">האם אני יכולה לעצב את כל הבית באותו יום?<div class="faq-ch">▼</div></button>
-        <div class="faq-a"><div class="faq-a-inner">העיצוב הוא עבור סלון, פינת אוכל וחדר שינה. יש אפשרות גם ליום רק לעיצוב של חדרי שינה.</div></div>
+    <div class="faq-list flip" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-1">האם אני יכולה לעצב את כל הבית באותו יום?<div class="faq-ch" aria-hidden="true">▼</div></button>
+        <div class="faq-a" id="faq-a-1" role="region"><div class="faq-a-inner">העיצוב הוא עבור סלון, פינת אוכל וחדר שינה. יש אפשרות גם ליום רק לעיצוב של חדרי שינה.</div></div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">איפה מבצעים את הקניות?<div class="faq-ch">▼</div></button>
-        <div class="faq-a"><div class="faq-a-inner">בדרך כלל הקניות מתבצעות באיזור מגוריכם. במידה ויש תקציב ספציפי שגורם לבעיית קניות באיזור שלכם, נסע לאיזור אחר בו נוכל לעמוד בתקציב.</div></div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-2">איפה מבצעים את הקניות?<div class="faq-ch" aria-hidden="true">▼</div></button>
+        <div class="faq-a" id="faq-a-2" role="region"><div class="faq-a-inner">בדרך כלל הקניות מתבצעות באיזור מגוריכם. במידה ויש תקציב ספציפי שגורם לבעיית קניות באיזור שלכם, נסע לאיזור אחר בו נוכל לעמוד בתקציב.</div></div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">האם באמת מספיקים לקנות הכל ב-8 שעות?<div class="faq-ch">▼</div></button>
-        <div class="faq-a"><div class="faq-a-inner">עם המומחיות שלי — בוודאי שזה אפשרי! יש לי טכניקת עבודה מדויקת שפיתחתי. כל שעליכם לעשות זה לתת לי להוביל את היום.</div></div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-3">האם באמת מספיקים לקנות הכל ב-8 שעות?<div class="faq-ch" aria-hidden="true">▼</div></button>
+        <div class="faq-a" id="faq-a-3" role="region"><div class="faq-a-inner">עם המומחיות שלי — בוודאי שזה אפשרי! יש לי טכניקת עבודה מדויקת שפיתחתי. כל שעליכם לעשות זה לתת לי להוביל את היום.</div></div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">האם יש מענה אחרי היום?<div class="faq-ch">▼</div></button>
-        <div class="faq-a"><div class="faq-a-inner">בטח שכן! זמינה אליכם בווטסאפ או בטלפון: א'–ה' בין 9:00–20:00, ו' 9:00–14:00.</div></div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-4">האם יש מענה אחרי היום?<div class="faq-ch" aria-hidden="true">▼</div></button>
+        <div class="faq-a" id="faq-a-4" role="region"><div class="faq-a-inner">בטח שכן! זמינה אליכם בווטסאפ או בטלפון: א'–ה' בין 9:00–20:00, ו' 9:00–14:00.</div></div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">באיזה אזורים את עובדת?<div class="faq-ch">▼</div></button>
-        <div class="faq-a"><div class="faq-a-inner">מחיפה ועד באר שבע</div></div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-5">באיזה אזורים את עובדת?<div class="faq-ch" aria-hidden="true">▼</div></button>
+        <div class="faq-a" id="faq-a-5" role="region"><div class="faq-a-inner">מחיפה ועד באר שבע</div></div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">במה את שונה?<div class="faq-ch">▼</div></button>
-        <div class="faq-a"><div class="faq-a-inner">אני לא מגיעה רק כדי לעצב חלל יפה — אני מגיעה כדי להבין אותך, את הבית שלך ואת התחושה שאת רוצה לחיות בה. התהליך משלב עיצוב מדויק, בחירת פריטים נכונה וליווי אישי שמאפשר לך לקבל בית שמרגיש יוקרתי, רגוע ונכון עבורך — בלי להתפזר, בלי לבזבז זמן ובלי טעויות יקרות.</div></div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-6">במה את שונה?<div class="faq-ch" aria-hidden="true">▼</div></button>
+        <div class="faq-a" id="faq-a-6" role="region"><div class="faq-a-inner">אני לא מגיעה רק כדי לעצב חלל יפה — אני מגיעה כדי להבין אותך, את הבית שלך ואת התחושה שאת רוצה לחיות בה. התהליך משלב עיצוב מדויק, בחירת פריטים נכונה וליווי אישי שמאפשר לך לקבל בית שמרגיש יוקרתי, רגוע ונכון עבורך — בלי להתפזר, בלי לבזבז זמן ובלי טעויות יקרות.</div></div>
       </div>
     </div>
   </div>
@@ -1846,7 +1857,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ══ CONTACT ══ -->
-<section class="section-alt" id="contact">
+<section class="section-alt" id="contact" aria-label="צור קשר">
   <div class="container">
     <p style="font-family:'Assistant',sans-serif;font-size:1.9rem;font-weight:700;color:var(--gold-d);text-align:center;margin-bottom:40px;line-height:1.5">השקעה קטנה שתכניס לך את כל השפע לבית שלך!</p>
     <div class="contact-inner">
@@ -1854,10 +1865,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-t">כן גל, אני רוצה שיחה איתך!</div>
         <div class="form-s">מלאי את הפרטים ואחזור אלייך בהקדם</div>
         <form onsubmit="handleSubmit(event)">
-          <div class="form-g"><label class="form-lbl">שם מלא *</label><input type="text" class="form-inp" placeholder="השם שלך" required /></div>
-          <div class="form-g"><label class="form-lbl">טלפון *</label><input type="tel" class="form-inp" placeholder="050-0000000" required /></div>
-          <div class="form-g"><label class="form-lbl">עיר מגורים</label><input type="text" class="form-inp" placeholder="איפה את גרה?" /></div>
-          <div class="form-g"><label class="form-lbl">מה הכי חשוב לך לשדרג?</label><textarea class="form-ta" placeholder="ספרי לי קצת על הבית שלך..."></textarea></div>
+          <div class="form-g"><label class="form-lbl" for="contact-name">שם מלא *</label><input id="contact-name" type="text" class="form-inp" placeholder="השם שלך" required /></div>
+          <div class="form-g"><label class="form-lbl" for="contact-phone">טלפון *</label><input id="contact-phone" type="tel" class="form-inp" placeholder="050-0000000" required /></div>
+          <div class="form-g"><label class="form-lbl" for="contact-city">עיר מגורים</label><input id="contact-city" type="text" class="form-inp" placeholder="איפה את גרה?" /></div>
+          <div class="form-g"><label class="form-lbl" for="contact-msg">מה הכי חשוב לך לשדרג?</label><textarea id="contact-msg" class="form-ta" placeholder="ספרי לי קצת על הבית שלך..."></textarea></div>
           <label class="form-chk"><input type="checkbox" required />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold-d);text-decoration:underline">מדיניות הפרטיות</a></label>
           <button type="submit" class="btn btn-gold form-btn">שלחי — אני רוצה בית חלומי!</button>
         </form>
@@ -1881,8 +1892,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+</main>
+
 <!-- ══ FOOTER ══ -->
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="container">
     <img src="logo-heb.png" alt="גל זרחי מעצבת פנים" style="height:140px;width:auto;object-fit:contain;margin:0 auto 16px;display:block">
     <div class="footer-logo">גל זרחי | <span>מעצבת פנים</span></div>
@@ -1902,8 +1915,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 function toggleFaq(btn) {
   var item = btn.closest('.faq-item');
   var isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
-  if(!isOpen) item.classList.add('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){
+    i.classList.remove('open');
+    i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+  }
 }
 
 // ── VIDEO — click thumbnail → load real iframe
