@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הצהרת נגישות | גל זרחי מעצבת פנים</title>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-d: #A8862E;
+      --ink: #1a1710;
+      --linen: #faf8f5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Assistant', sans-serif;
+      background: var(--linen);
+      color: var(--ink);
+      line-height: 1.8;
+    }
+    header {
+      background: #0d0b06;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    header a:hover { color: #fff; }
+    header img { height: 52px; width: auto; }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    h1 {
+      font-family: 'Secular One', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .updated {
+      font-size: .82rem;
+      color: #888;
+      margin-bottom: 48px;
+      letter-spacing: .04em;
+    }
+    h2 {
+      font-family: 'Secular One', sans-serif;
+      font-size: 1.15rem;
+      color: var(--gold-d);
+      margin: 40px 0 12px;
+      padding-right: 14px;
+      border-right: 3px solid var(--gold);
+    }
+    p, li {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    ul { padding-right: 20px; }
+    li { margin-bottom: 6px; }
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 16px 0 40px;
+    }
+    .contact-box {
+      background: #fff;
+      border: 1px solid #e2d9c8;
+      border-right: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .contact-box p { margin-bottom: 6px; }
+    .contact-box a { color: var(--gold-d); text-decoration: underline; }
+    footer {
+      background: #0d0b06;
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      padding: 24px;
+      font-size: .8rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    חזרה לאתר
+  </a>
+  <img src="logo-heb.png" alt="גל זרחי מעצבת פנים" />
+</header>
+
+<main>
+<div class="container">
+  <h1>הצהרת נגישות</h1>
+  <div class="divider"></div>
+
+  <h2>מחויבות לנגישות</h2>
+  <p>
+    גל זרחי — עיצוב פנים מאמינה בשוויון הזדמנויות לכל אדם, לרבות אנשים עם מוגבלויות.
+    אנו פועלים להנגשת האתר בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998,
+    ותקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013,
+    וכן תקן ישראלי 5568 המבוסס על הנחיות WCAG 2.1 ברמה AA.
+  </p>
+
+  <h2>מה בוצע לשם הנגישות</h2>
+  <ul>
+    <li>הוספת תג שפה (<code>lang="he"</code>) וכיוון (<code>dir="rtl"</code>) לדף.</li>
+    <li>מבנה סמנטי תקני: כותרות (<code>h1–h3</code>), ניווט (<code>nav</code>), תוכן ראשי (<code>main</code>), כותרת (<code>header</code>) ותחתית (<code>footer</code>).</li>
+    <li>קישור "דלג לתוכן" לניווט מהיר למשתמשי מקלדת.</li>
+    <li>כל תמונה משמעותית מכילה טקסט חלופי (<code>alt</code>).</li>
+    <li>תוויות (<code>label</code>) מקושרות לכל שדות הטופס.</li>
+    <li>כל הכפתורים והקישורים כוללים שם נגיש ברור.</li>
+    <li>אקורדיון שאלות ותשובות (FAQ) תומך ב-<code>aria-expanded</code> וניווט מקלדת.</li>
+    <li>צבעים עומדים ביחס ניגודיות מינימלי של 4.5:1 לטקסט.</li>
+    <li>האתר נתמך בהגדלת טקסט עד 200% ללא איבוד תוכן.</li>
+    <li>כל האנימציות מבוטלות בהגדרת <code>prefers-reduced-motion</code>.</li>
+    <li>טפסים כוללים זיהוי שגיאות ומשוב נגיש.</li>
+    <li>האתר פועל כראוי בדפדפנים מובילים ובקוראי מסך נפוצים (NVDA, VoiceOver).</li>
+  </ul>
+
+  <h2>מה טרם הונגש</h2>
+  <p>אנו עובדים על שיפור מתמיד. להלן אזורים שטרם הונגשו במלואם:</p>
+  <ul>
+    <li>חלק מהסרטונים אינם מלווים בכתוביות — אנו בוחנים הוספת כתוביות.</li>
+    <li>גלריית תמונות הנפתחת בהגדלה אינה נגישה במלואה למשתמשי מקלדת.</li>
+  </ul>
+
+  <h2>אמצעי עזר טכנולוגיים</h2>
+  <p>האתר נבדק עם אמצעי העזר הבאים:</p>
+  <ul>
+    <li>קורא מסך NVDA (Windows) ו-VoiceOver (Mac/iOS)</li>
+    <li>ניווט מקלדת בלבד</li>
+    <li>הגדלת טקסט של הדפדפן</li>
+    <li>Chrome, Firefox, Safari, Edge — גרסאות עדכניות</li>
+  </ul>
+
+  <h2>פרטי רכז/ת הנגישות</h2>
+  <p>לפניות, הצעות לשיפור, או דיווח על קשיים בנגישות האתר, ניתן לפנות:</p>
+  <div class="contact-box">
+    <p><strong>שם:</strong> גל זרחי</p>
+    <p><strong>תפקיד:</strong> רכזת נגישות</p>
+    <p><strong>דוא"ל:</strong> <a href="mailto:galzarhinterior@gmail.com">galzarhinterior@gmail.com</a></p>
+    <p><strong>טלפון:</strong> <a href="tel:0547440305">054-7440305</a></p>
+    <p><strong>זמינות:</strong> א'–ה' 9:00–20:00 | ו' 9:00–14:00</p>
+  </div>
+  <p style="margin-top:16px">נשתדל להגיב לפניות נגישות תוך 5 ימי עסקים.</p>
+
+  <h2>תאריך עדכון ההצהרה</h2>
+  <p class="updated">עדכון אחרון: יולי 2026</p>
+</div>
+</main>
+
+<footer>
+  <p>© 2025 גל זרחי מעצבת פנים. כל הזכויות שמורות. |
+    <a href="privacy.html">מדיניות פרטיות</a> |
+    <a href="accessibility.html">הצהרת נגישות</a>
+  </p>
+</footer>
+
+</body>
+</html>
