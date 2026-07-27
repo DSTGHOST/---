@@ -537,7 +537,10 @@
     }
 
     /* ── אפקטי נגישות ── */
-    body.a11y-high-contrast{filter:contrast(1.6) brightness(1.05)}
+    /* פילטר על body שובר position:fixed — מחילים רק על אזורי התוכן */
+    body.a11y-high-contrast .header,
+    body.a11y-high-contrast main,
+    body.a11y-high-contrast footer{filter:contrast(1.6) brightness(1.05)}
     body.a11y-no-anim *{animation:none!important;transition:none!important}
     body.a11y-links a:not(.a11y-btn):not(.float-wa):not(.btn){
       text-decoration:underline!important;outline:2px dashed #1565C0;outline-offset:2px
@@ -1353,10 +1356,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="a11y-panel-body">
     <div class="a11y-section-title">גודל טקסט</div>
     <div class="a11y-font-row">
-      <button class="a11y-font-btn" style="font-size:.78rem" onclick="setFont(0)" id="fs0" aria-label="גודל טקסט קטן">א</button>
-      <button class="a11y-font-btn" style="font-size:.92rem" onclick="setFont(1)" id="fs1" aria-label="גודל טקסט רגיל">א</button>
+      <button class="a11y-font-btn active" style="font-size:.78rem" onclick="setFont(0)" id="fs0" aria-label="גודל טקסט רגיל">א</button>
+      <button class="a11y-font-btn" style="font-size:.92rem" onclick="setFont(1)" id="fs1" aria-label="גודל טקסט מוגדל">א</button>
       <button class="a11y-font-btn" style="font-size:1.08rem" onclick="setFont(2)" id="fs2" aria-label="גודל טקסט גדול">א</button>
-      <button class="a11y-font-btn active" style="font-size:1.22rem" onclick="setFont(3)" id="fs3" aria-label="גודל טקסט גדול מאוד">א</button>
+      <button class="a11y-font-btn" style="font-size:1.22rem" onclick="setFont(3)" id="fs3" aria-label="גודל טקסט גדול מאוד">א</button>
     </div>
 
     <div class="a11y-toggle-row">
@@ -1377,7 +1380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <button class="a11y-reset" onclick="resetA11y()">איפוס הגדרות</button>
-    <a href="accessibility.html" class="a11y-stmt-link">לצהרת הנגישות המלאה</a>
+    <a href="accessibility.html" class="a11y-stmt-link">להצהרת הנגישות המלאה</a>
   </div>
 </div>
 
