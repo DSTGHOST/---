@@ -62,7 +62,7 @@
     .skip-link{position:absolute;top:-120px;right:0;background:var(--gold-d);color:#fff;padding:14px 24px;font-family:'Assistant',sans-serif;font-size:.95rem;font-weight:700;z-index:9999;border-radius:0 0 var(--r-sm) var(--r-sm);transition:top .2s;text-decoration:none;white-space:nowrap}
     .skip-link:focus{top:0;outline:3px solid var(--gold);outline-offset:2px}
     :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
-    .btn:focus-visible,.float-wa:focus-visible{outline:2px solid var(--gold-l);outline-offset:4px}
+    .btn:focus-visible{outline:2px solid var(--gold-l);outline-offset:4px}
     .faq-q:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
     .wa-arr:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
     img{max-width:100%;display:block}
@@ -444,13 +444,11 @@
     .step-card{cursor:default}
 
     /* ── FLOATING WA ── */
-    .float-wa{position:fixed;bottom:26px;left:26px;z-index:300;width:58px;height:58px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);transition:var(--tr);animation:wapulse 2.5s infinite}
-    .float-wa:hover{transform:scale(1.12)}
     @keyframes wapulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45)}50%{box-shadow:0 6px 44px rgba(37,211,102,.7)}}
 
     /* ── תפריט נגישות (תקן ישראלי 5568) ── */
     .a11y-btn{
-      position:fixed;bottom:94px;left:26px;z-index:400;
+      position:fixed;bottom:26px;left:26px;z-index:400;
       width:58px;height:58px;
       background:#1565C0;
       border-radius:50%;
@@ -463,13 +461,13 @@
     .a11y-btn:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(21,101,192,.65)}
     .a11y-btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
     @media(max-width:600px){
-      .a11y-btn{width:50px;height:50px;bottom:80px;left:14px}
+      .a11y-btn{width:50px;height:50px;bottom:18px;left:14px}
       .a11y-btn svg{width:26px;height:26px}
     }
 
     /* ── פאנל נגישות ── */
     .a11y-panel{
-      position:fixed;bottom:164px;left:20px;z-index:500;
+      position:fixed;bottom:96px;left:20px;z-index:500;
       width:290px;
       background:#fff;
       border-radius:16px;
@@ -542,7 +540,7 @@
     body.a11y-high-contrast main,
     body.a11y-high-contrast footer{filter:contrast(1.6) brightness(1.05)}
     body.a11y-no-anim *{animation:none!important;transition:none!important}
-    body.a11y-links a:not(.a11y-btn):not(.float-wa):not(.btn){
+    body.a11y-links a:not(.a11y-btn):not(.btn){
       text-decoration:underline!important;outline:2px dashed #1565C0;outline-offset:2px
     }
     body.a11y-big-cursor,body.a11y-big-cursor *{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 3l19 12-8 2-4 9z' fill='black' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 0 0,auto!important}
@@ -1118,8 +1116,6 @@
       .footer-copy{font-size:.72rem}
 
       /* Floating WA */
-      .float-wa{width:50px;height:50px;bottom:18px;left:14px}
-      .float-wa svg{width:22px;height:22px}
     }
 
     /* ══ WHO IS IT FOR — CINEMATIC EDITORIAL ══ */
@@ -1395,11 +1391,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </svg>
 </button>
 
-<!-- FLOATING WA -->
-<a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="float-wa" target="_blank" aria-label="פתיחת שיחת WhatsApp עם גל זרחי">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
 <!-- ══ HEADER ══ -->
 <header class="header" role="banner">
   <div class="container header-inner">
@@ -1408,10 +1399,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <nav class="header-actions" aria-label="ניווט ראשי">
       <a href="#contact" class="btn btn-outline btn-outline" style="padding:9px 20px;font-size:.86rem">השאירי פרטים</a>
-      <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-wa" style="padding:9px 20px;font-size:.86rem" target="_blank">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
     </nav>
   </div>
 </header>
@@ -1430,18 +1417,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h1>
     <p class="hero-sub-cin hr-anim hr-d4">עם צוות שלם שמטפל בכל העיצוב עד לשלמות — גם בשכירות, גם אחרי שיפוץ, וגם בבית חדש. <strong>חוסכת 20,000 ₪ בממוצע</strong></p>
     <div class="hero-ctas-cin hr-anim hr-d5">
-      <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-outline-w btn-lg" target="_blank">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        שלחי הודעה
-      </a>
+      <a href="#lead-form" class="btn btn-gold btn-lg">אני רוצה מייקאובר</a>
     </div>
-    <!-- Hero inline form -->
-    <form onsubmit="handleSubmitShort(event)" class="hr-anim hr-d5" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;max-width:380px;margin-left:auto;margin-right:auto" aria-label="טופס השארת פרטים">
-      <input type="text" placeholder="שם מלא *" aria-label="שם מלא" required style="width:100%;background:rgba(13,11,6,.7);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,.35);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Assistant',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.9)'" onblur="this.style.borderColor='rgba(201,168,76,.35)'" />
-      <input type="tel" placeholder="טלפון *" aria-label="מספר טלפון" required style="width:100%;background:rgba(13,11,6,.7);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,.35);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Assistant',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.9)'" onblur="this.style.borderColor='rgba(201,168,76,.35)'" />
-      <label style="width:100%;display:flex;align-items:center;gap:7px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.78rem;color:rgba(255,255,255,.5)"><input type="checkbox" required style="accent-color:var(--gold);width:14px;height:14px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold);text-decoration:underline">מדיניות הפרטיות</a></label>
-      <button type="submit" style="width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:.95rem;border:none;border-radius:10px;padding:13px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 20px rgba(201,168,76,.3)" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">שלחי — אני רוצה בית חלומי!</button>
-    </form>
   </div>
   <div class="hero-stat-bar hr-anim hr-d6" aria-label="נתוני שירות">
     <div class="hsb-item"><div class="hsb-n" data-count="500" data-suffix="+" aria-label="מעל 500 בתים בישראל">0</div><div class="hsb-l" aria-hidden="true">בתים בישראל</div></div>
@@ -1580,7 +1557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div style="text-align:center;margin-top:28px">
-      <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-gold btn-lg" target="_blank">אני רוצה יום מייקאובר!</a>
+      <a href="#lead-form" class="btn btn-gold btn-lg">אני רוצה יום מייקאובר!</a>
     </div>
   </div>
 </section>
@@ -1692,13 +1669,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="gc-cta fade">
       <p class="gc-cta-q">רוצה שהבית שלך ייראה כך?</p>
-      <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-gold btn-lg" target="_blank" rel="noopener">שלחי הודעה עכשיו</a>
+      <a href="#lead-form" class="btn btn-gold btn-lg">אני רוצה בית כזה</a>
     </div>
   </div>
 </section>
 
 <!-- ══ INLINE FORM 1 ══ -->
-<section style="padding:72px 24px;background:linear-gradient(135deg,#0d0b06 0%,#1a1308 100%);position:relative;overflow:hidden">
+<section id="lead-form" style="padding:72px 24px;background:linear-gradient(135deg,#0d0b06 0%,#1a1308 100%);position:relative;overflow:hidden">
   <div style="position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.08),transparent 65%);pointer-events:none"></div>
   <div style="max-width:480px;margin:0 auto;position:relative">
     <div style="text-align:center;margin-bottom:32px">
@@ -1717,6 +1694,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.85rem;color:rgba(255,255,255,.55)"><input type="checkbox" required style="accent-color:var(--gold);width:16px;height:16px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold);text-decoration:underline">מדיניות הפרטיות</a></label>
       <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:1.05rem;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(201,168,76,.3)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 36px rgba(201,168,76,.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(201,168,76,.3)'">שלחי — אני רוצה בית חלומי!</button>
     </form>
+    <div style="margin-top:22px;text-align:center">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px" aria-hidden="true">
+        <span style="flex:1;height:1px;background:rgba(201,168,76,.25)"></span>
+        <span style="font-family:'Assistant',sans-serif;font-size:.8rem;color:rgba(255,255,255,.45)">או</span>
+        <span style="flex:1;height:1px;background:rgba(201,168,76,.25)"></span>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=972547440305&amp;text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&amp;type=phone_number&amp;app_absent=0" class="btn btn-wa" target="_blank" rel="noopener" style="width:100%;justify-content:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        דברי איתי בוואטסאפ
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1745,7 +1733,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="cred"><div class="cred-dot"></div>עוזרת לכם להכניס שפע לחיים בעזרת עיצוב נכון</div>
         </div>
         <div style="margin-top:28px">
-          <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-gold" target="_blank">דברי עם גל עכשיו</a>
+          <a href="#contact" class="btn btn-gold">דברי עם גל עכשיו</a>
         </div>
       </div>
     </div>
@@ -1840,7 +1828,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="container" style="margin-top:40px">
     <div class="center fade">
-      <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-gold btn-lg" target="_blank">אני רוצה לראות עוד תוצאות</a>
+      <a href="#contact" class="btn btn-gold btn-lg">אני רוצה לראות עוד תוצאות</a>
     </div>
   </div>
 </section>
@@ -1883,7 +1871,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="p-feat">רשימת קניות מפורטת — 1,000 ₪</li>
           <li class="p-feat">ליווי קניות מלא — 6,000 ₪</li>
         </ul>
-        <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-gold" style="width:100%;justify-content:center" target="_blank">אני סוגרת עכשיו!</a>
+        <a href="#contact" class="btn btn-gold" style="width:100%;justify-content:center">אני סוגרת עכשיו!</a>
         <p style="font-size:.76rem;color:rgba(255,255,255,.4);margin-top:10px">מוגבל ל-20 הנרשמות הראשונות בלבד</p>
       </div>
     </div>
@@ -1900,25 +1888,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="spots-l">מקומות אחרונים!</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ══ INLINE FORM 2 ══ -->
-<section style="padding:72px 24px;background:var(--linen);position:relative;overflow:hidden">
-  <div style="position:absolute;bottom:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,.07),transparent 65%);pointer-events:none"></div>
-  <div style="max-width:480px;margin:0 auto;position:relative">
-    <div style="text-align:center;margin-bottom:32px">
-      <div style="display:inline-block;width:40px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-d));vertical-align:middle;margin-left:12px"></div>
-      <span style="font-family:'Secular One',sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--gold-d);text-transform:uppercase">צרי קשר עוד היום</span>
-      <div style="display:inline-block;width:40px;height:2px;background:linear-gradient(90deg,var(--gold-d),transparent);vertical-align:middle;margin-right:12px"></div>
-    </div>
-    <h2 style="font-family:'Secular One',sans-serif;font-size:clamp(1.4rem,3.5vw,2rem);color:#1a1710;text-align:center;margin-bottom:36px;line-height:1.4">השקעה קטנה שתכניס לך<br><span style="color:var(--gold-d)">את כל השפע לבית שלך!</span></h2>
-    <form onsubmit="handleSubmitShort(event)" style="display:flex;flex-direction:column;gap:14px" aria-label="טופס השארת פרטים">
-      <input type="text" placeholder="שם מלא *" aria-label="שם מלא" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
-      <input type="tel" placeholder="טלפון *" aria-label="מספר טלפון" required style="width:100%;background:#fff;border:1.5px solid #e2d9c8;border-radius:12px;padding:16px 20px;color:#1a1710;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--gold-d)';this.style.boxShadow='0 0 0 3px rgba(168,134,46,.15)'" onblur="this.style.borderColor='#e2d9c8';this.style.boxShadow='none'" />
-      <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.85rem;color:#666"><input type="checkbox" required style="accent-color:var(--gold-d);width:16px;height:16px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold-d);text-decoration:underline">מדיניות הפרטיות</a></label>
-      <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:1.05rem;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(168,134,46,.25)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 36px rgba(168,134,46,.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(168,134,46,.25)'">שלחי — אני רוצה בית חלומי!</button>
-    </form>
   </div>
 </section>
 
@@ -1995,7 +1964,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="center fade" style="margin-top:48px">
-      <a href="https://api.whatsapp.com/send/?phone=972547440305&text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A0%D7%A9%D7%9E%D7%A2%20%D7%92%D7%9C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%AA%D7%94%D7%9C%D7%99%D7%9A%20%D7%94%D7%9E%D7%99%D7%99%D7%A7%D7%90%D7%95%D7%91%D7%A8%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9&type=phone_number&app_absent=0" class="btn btn-gold btn-lg" target="_blank" style="box-shadow:0 4px 24px rgba(184,146,42,.5)">
+      <a href="#contact" class="btn btn-gold btn-lg" style="box-shadow:0 4px 24px rgba(184,146,42,.5)">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         שאלי אותי על שירות
       </a>
