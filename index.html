@@ -2246,6 +2246,28 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 });
 
 // ── FORM
+// יעדי השליחה — זהים לשני הטפסים
+var LEAD_ENDPOINTS = [
+  'https://hook.eu2.make.com/6zmegyh7cuhr8vto548jnkwtak5iyebp',
+  'https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec'
+];
+
+// אירוע המרה ל-GTM — נדחף לפני השליחה כדי שלא ייבלע ע"י ההפניה
+function trackLead(form){
+  var sec = form.closest('section');
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'generate_lead',
+    form_location: (sec && sec.id) ? sec.id : 'unknown'
+  });
+}
+
+function sendLead(payload){
+  return Promise.allSettled(LEAD_ENDPOINTS.map(function(url){
+    return fetch(url, { method:'POST', mode:'no-cors', body:payload });
+  }));
+}
+
 function handleSubmitShort(e){
   e.preventDefault();
   var form = e.target;
@@ -2258,11 +2280,9 @@ function handleSubmitShort(e){
   var phone = inputs[1].value;
   btn.textContent = 'שולח...';
   btn.disabled = true;
+  trackLead(form);
   var payload = JSON.stringify({ name: name, phone: phone, city: '', message: '' });
-  Promise.allSettled([
-    fetch('https://hook.eu2.make.com/6zmegyh7cuhr8vto548jnkwtak5iyebp', { method:'POST', mode:'no-cors', body:payload }),
-    fetch('https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec', { method:'POST', mode:'no-cors', body:payload })
-  ]).then(function(){ window.location.href='thank-you.html'; });
+  sendLead(payload).then(function(){ window.location.href='thank-you.html'; });
 }
 
 function handleSubmit(e){
@@ -2284,17 +2304,11 @@ function handleSubmit(e){
 
   btn.textContent = 'שולח...';
   btn.disabled = true;
+  trackLead(form);
 
   var payload = JSON.stringify({ name: name, phone: phone, city: city, message: message });
 
-  Promise.allSettled([
-    fetch('https://hook.eu2.make.com/6zmegyh7cuhr8vto548jnkwtak5iyebp', {
-      method: 'POST', mode: 'no-cors', body: payload
-    }),
-    fetch('https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec', {
-      method: 'POST', mode: 'no-cors', body: payload
-    })
-  ]).then(function() {
+  sendLead(payload).then(function() {
     window.location.href = 'thank-you.html';
   });
 }
