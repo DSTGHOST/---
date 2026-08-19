@@ -2246,6 +2246,37 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 });
 
 // ── FORM
+// ── UTM — נלכד בכניסה לאתר ונשמר לכל הסשן (שורד מעבר לדף פרטיות וחזרה)
+var UTM_KEYS = ['utm_source','utm_medium','utm_campaign'];
+(function captureUtm(){
+  try{
+    var qs = new URLSearchParams(window.location.search);
+    UTM_KEYS.forEach(function(k){
+      var v = qs.get(k);
+      if(v) sessionStorage.setItem(k, v);
+    });
+  }catch(e){}
+})();
+function getUtm(){
+  var out = {};
+  UTM_KEYS.forEach(function(k){
+    try{ out[k] = sessionStorage.getItem(k) || ''; }catch(e){ out[k] = ''; }
+  });
+  return out;
+}
+// מרכיב את גוף הבקשה — זהה לשני הטפסים
+function buildPayload(d){
+  var utm = getUtm();
+  return JSON.stringify({
+    name: d.name,
+    phone: d.phone,
+    city: d.city || '',
+    message: d.message || '',
+    utm_source: utm.utm_source,
+    utm_medium: utm.utm_medium,
+    utm_campaign: utm.utm_campaign
+  });
+}
 // יעדי השליחה — זהים לשני הטפסים
 var LEAD_ENDPOINTS = [
   'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h',
@@ -2281,7 +2312,7 @@ function handleSubmitShort(e){
   btn.textContent = 'שולח...';
   btn.disabled = true;
   trackLead(form);
-  var payload = JSON.stringify({ name: name, phone: phone, city: '', message: '' });
+  var payload = buildPayload({ name: name, phone: phone });
   sendLead(payload).then(function(){ window.location.href='thank-you.html'; });
 }
 
@@ -2306,7 +2337,7 @@ function handleSubmit(e){
   btn.disabled = true;
   trackLead(form);
 
-  var payload = JSON.stringify({ name: name, phone: phone, city: city, message: message });
+  var payload = buildPayload({ name: name, phone: phone, city: city, message: message });
 
   sendLead(payload).then(function() {
     window.location.href = 'thank-you.html';
