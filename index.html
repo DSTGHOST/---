@@ -2264,24 +2264,9 @@ function getUtm(){
   });
   return out;
 }
-// מרכיב את גוף הבקשה — זהה לשני הטפסים
-function buildPayload(d){
-  var utm = getUtm();
-  return JSON.stringify({
-    name: d.name,
-    phone: d.phone,
-    city: d.city || '',
-    message: d.message || '',
-    utm_source: utm.utm_source,
-    utm_medium: utm.utm_medium,
-    utm_campaign: utm.utm_campaign
-  });
-}
-// יעדי השליחה — זהים לשני הטפסים
-var LEAD_ENDPOINTS = [
-  'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h',
-  'https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec'
-];
+// יעדי השליחה
+var MAKE_HOOK  = 'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h';
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec';
 
 // אירוע המרה ל-GTM — נדחף לפני השליחה כדי שלא ייבלע ע"י ההפניה
 function trackLead(form){
@@ -2293,10 +2278,29 @@ function trackLead(form){
   });
 }
 
-function sendLead(payload){
-  return Promise.allSettled(LEAD_ENDPOINTS.map(function(url){
-    return fetch(url, { method:'POST', mode:'no-cors', body:payload });
-  }));
+// Make מקבל את הליד + UTM. Sheets מקבל את הליד בלבד, במבנה המקורי —
+// כך שאין צורך לגעת ב-Apps Script.
+function sendLead(d){
+  var lead = {
+    name: d.name,
+    phone: d.phone,
+    city: d.city || '',
+    message: d.message || ''
+  };
+  var utm = getUtm();
+  var forMake = JSON.stringify({
+    name: lead.name,
+    phone: lead.phone,
+    city: lead.city,
+    message: lead.message,
+    utm_source: utm.utm_source,
+    utm_medium: utm.utm_medium,
+    utm_campaign: utm.utm_campaign
+  });
+  return Promise.allSettled([
+    fetch(MAKE_HOOK,  { method:'POST', mode:'no-cors', body: forMake }),
+    fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(lead) })
+  ]);
 }
 
 function handleSubmitShort(e){
@@ -2312,8 +2316,7 @@ function handleSubmitShort(e){
   btn.textContent = 'שולח...';
   btn.disabled = true;
   trackLead(form);
-  var payload = buildPayload({ name: name, phone: phone });
-  sendLead(payload).then(function(){ window.location.href='thank-you.html'; });
+  sendLead({ name: name, phone: phone }).then(function(){ window.location.href='thank-you.html'; });
 }
 
 function handleSubmit(e){
@@ -2337,9 +2340,7 @@ function handleSubmit(e){
   btn.disabled = true;
   trackLead(form);
 
-  var payload = buildPayload({ name: name, phone: phone, city: city, message: message });
-
-  sendLead(payload).then(function() {
+  sendLead({ name: name, phone: phone, city: city, message: message }).then(function() {
     window.location.href = 'thank-you.html';
   });
 }
