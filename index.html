@@ -2288,7 +2288,10 @@ function sendLead(d){
     message: d.message || ''
   };
   var utm = getUtm();
-  var forMake = JSON.stringify({
+  // ל-Make שולחים form-urlencoded ולא JSON: במצב no-cors הדפדפן מסנן כותרות,
+  // ולכן גוף מחרוזת נשלח כ-text/plain ו-Make היה תוקע את הכל בשדה בודד "value".
+  // URLSearchParams קובע לבד Content-Type תקין, וכל שדה מגיע בנפרד.
+  var forMake = new URLSearchParams({
     name: lead.name,
     phone: lead.phone,
     city: lead.city,
