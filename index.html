@@ -2242,8 +2242,9 @@ function getUtm(){
   });
   return out;
 }
-// יעדי השליחה
-var MAKE_HOOK  = 'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h';
+// יעדי השליחה — כל טופס עם הוובהוק שלו
+var MAKE_HOOK_LEAD_FORM = 'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h';
+var MAKE_HOOK_CONTACT    = 'https://hook.eu2.make.com/dog23jbtof5iii2taf6fddso55q4dxkg';
 var SHEETS_URL = 'https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec';
 
 // אירוע המרה ל-GTM — נדחף לפני השליחה כדי שלא ייבלע ע"י ההפניה
@@ -2258,7 +2259,7 @@ function trackLead(form){
 
 // Make מקבל את הליד + UTM. Sheets מקבל את הליד בלבד, במבנה המקורי —
 // כך שאין צורך לגעת ב-Apps Script.
-function sendLead(d){
+function sendLead(d, makeHook){
   var lead = {
     name: d.name,
     phone: d.phone,
@@ -2279,7 +2280,7 @@ function sendLead(d){
     utm_campaign: utm.utm_campaign
   });
   return Promise.allSettled([
-    fetch(MAKE_HOOK,  { method:'POST', mode:'no-cors', body: forMake }),
+    fetch(makeHook,   { method:'POST', mode:'no-cors', body: forMake }),
     fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(lead) })
   ]);
 }
@@ -2297,7 +2298,7 @@ function handleSubmitShort(e){
   btn.textContent = 'שולח...';
   btn.disabled = true;
   trackLead(form);
-  sendLead({ name: name, phone: phone }).then(function(){ window.location.href='thank-you.html'; });
+  sendLead({ name: name, phone: phone }, MAKE_HOOK_LEAD_FORM).then(function(){ window.location.href='thank-you.html'; });
 }
 
 function handleSubmit(e){
@@ -2321,7 +2322,7 @@ function handleSubmit(e){
   btn.disabled = true;
   trackLead(form);
 
-  sendLead({ name: name, phone: phone, city: city, message: message }).then(function() {
+  sendLead({ name: name, phone: phone, city: city, message: message }, MAKE_HOOK_CONTACT).then(function() {
     window.location.href = 'thank-you.html';
   });
 }
