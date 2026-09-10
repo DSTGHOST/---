@@ -2242,9 +2242,8 @@ function getUtm(){
   });
   return out;
 }
-// יעדי השליחה — כל טופס עם הוובהוק שלו
-var MAKE_HOOK_LEAD_FORM = 'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h';
-var MAKE_HOOK_CONTACT    = 'https://hook.eu2.make.com/dog23jbtof5iii2taf6fddso55q4dxkg';
+// יעדי השליחה — וובהוק אחד לכל הטפסים באתר
+var MAKE_HOOK = 'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h';
 var SHEETS_URL = 'https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec';
 
 // אירוע המרה ל-GTM — נדחף לפני השליחה כדי שלא ייבלע ע"י ההפניה
@@ -2298,7 +2297,7 @@ function handleSubmitShort(e){
   btn.textContent = 'שולח...';
   btn.disabled = true;
   trackLead(form);
-  sendLead({ name: name, phone: phone }, MAKE_HOOK_LEAD_FORM).then(function(){ window.location.href='thank-you.html'; });
+  sendLead({ name: name, phone: phone }, MAKE_HOOK).then(function(){ window.location.href='thank-you.html'; });
 }
 
 function handleSubmit(e){
@@ -2322,7 +2321,7 @@ function handleSubmit(e){
   btn.disabled = true;
   trackLead(form);
 
-  sendLead({ name: name, phone: phone, city: city, message: message }, MAKE_HOOK_CONTACT).then(function() {
+  sendLead({ name: name, phone: phone, city: city, message: message }, MAKE_HOOK).then(function() {
     window.location.href = 'thank-you.html';
   });
 }
