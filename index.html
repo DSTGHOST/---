@@ -1719,6 +1719,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="position:relative">
         <input type="tel" placeholder="טלפון *" required style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:16px 20px;color:#fff;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.8)'" onblur="this.style.borderColor='rgba(201,168,76,.3)'" />
       </div>
+      <div style="position:relative">
+        <input type="text" placeholder="עיר מגורים" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:16px 20px;color:#fff;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='rgba(201,168,76,.8)'" onblur="this.style.borderColor='rgba(201,168,76,.3)'" />
+      </div>
+      <div style="position:relative">
+        <textarea placeholder="מה הכי חשוב לך לשדרג?" rows="2" style="width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:16px 20px;color:#fff;font-family:'Assistant',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;box-sizing:border-box;resize:none" onfocus="this.style.borderColor='rgba(201,168,76,.8)'" onblur="this.style.borderColor='rgba(201,168,76,.3)'"></textarea>
+      </div>
       <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Assistant',sans-serif;font-size:.85rem;color:rgba(255,255,255,.55)"><input type="checkbox" required style="accent-color:var(--gold);width:16px;height:16px;flex-shrink:0" />קראתי ואני מאשר/ת את <a href="privacy.html" target="_blank" style="color:var(--gold);text-decoration:underline">מדיניות הפרטיות</a></label>
       <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#0d0b06;font-family:'Secular One',sans-serif;font-size:1.05rem;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(201,168,76,.3)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 36px rgba(201,168,76,.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(201,168,76,.3)'">שלחי — אני רוצה בית חלומי!</button>
     </form>
@@ -2294,10 +2300,12 @@ function handleSubmitShort(e){
   var inputs = form.querySelectorAll('input[type="text"],input[type="tel"]');
   var name = inputs[0].value;
   var phone = inputs[1].value;
+  var city = inputs[2] ? inputs[2].value : '';
+  var message = form.querySelector('textarea') ? form.querySelector('textarea').value : '';
   btn.textContent = 'שולח...';
   btn.disabled = true;
   trackLead(form);
-  sendLead({ name: name, phone: phone }, MAKE_HOOK).then(function(){ window.location.href='thank-you.html'; });
+  sendLead({ name: name, phone: phone, city: city, message: message }, MAKE_HOOK).then(function(){ window.location.href='thank-you.html'; });
 }
 
 function handleSubmit(e){
