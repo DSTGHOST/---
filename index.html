@@ -2249,7 +2249,7 @@ function getUtm(){
   return out;
 }
 // יעדי השליחה — וובהוק אחד לכל הטפסים באתר
-var MAKE_HOOK = 'https://hook.eu2.make.com/9ak1thmirfgq2eccdukfj513mm4l9q9h';
+var MAKE_HOOK = 'https://hook.eu2.make.com/uujljk3h62sxu91ytii9elc059toddtf';
 var SHEETS_URL = 'https://script.google.com/macros/s/AKfycby7v2P6caqks1-1139pYcGhYY3Aa5xSn-mqRAR0Zz23ji-N_Sfuz9MIkR-cd7jiRC-d/exec';
 
 // אירוע המרה ל-GTM — נדחף לפני השליחה כדי שלא ייבלע ע"י ההפניה
@@ -2262,8 +2262,14 @@ function trackLead(form){
   });
 }
 
-// Make מקבל את הליד + UTM. Sheets מקבל את הליד בלבד, במבנה המקורי —
-// כך שאין צורך לגעת ב-Apps Script.
+// מפצלת "שם מלא" לשם פרטי + משפחה — התרשים בצד Make מצפה לשני שדות נפרדים
+function splitName(fullName){
+  var parts = (fullName || '').trim().split(/\s+/);
+  return { first: parts[0] || '', last: parts.slice(1).join(' ') };
+}
+
+// Make מקבל את הליד עם השדות שהתרשים שלו מצפה להם (first/last/name/email/phone) + UTM.
+// Sheets מקבל את הליד בלבד, במבנה המקורי — כך שאין צורך לגעת ב-Apps Script.
 function sendLead(d, makeHook){
   var lead = {
     name: d.name,
@@ -2271,12 +2277,17 @@ function sendLead(d, makeHook){
     city: d.city || '',
     message: d.message || ''
   };
+  var n = splitName(lead.name);
   var utm = getUtm();
   // ל-Make שולחים form-urlencoded ולא JSON: במצב no-cors הדפדפן מסנן כותרות,
   // ולכן גוף מחרוזת נשלח כ-text/plain ו-Make היה תוקע את הכל בשדה בודד "value".
   // URLSearchParams קובע לבד Content-Type תקין, וכל שדה מגיע בנפרד.
   var forMake = new URLSearchParams({
     name: lead.name,
+    first: n.first,
+    last: n.last,
+    email: d.email || '',
+    type: '',
     phone: lead.phone,
     city: lead.city,
     message: lead.message,
