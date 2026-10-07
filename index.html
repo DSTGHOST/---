@@ -79,9 +79,9 @@
     .badge-dark{background:transparent;border:none;color:var(--gold-l)}
     h1,h2,h3{font-family:'Secular One',sans-serif;line-height:1.12}
     .h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:700;letter-spacing:-.01em}
-    .h2{font-size:clamp(1.9rem,4vw,3.2rem);font-weight:600;letter-spacing:.02em}
+    .h2{font-size:clamp(1.9rem,4vw,3.2rem);font-weight:600;letter-spacing:.02em;text-wrap:balance}
     .h3{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:500;letter-spacing:.05em}
-    .lead{font-size:1.05rem;line-height:2.0;color:var(--stone);font-weight:300;letter-spacing:.025em}
+    .lead{font-size:1.05rem;line-height:2.0;color:var(--stone);font-weight:300;letter-spacing:.025em;text-wrap:pretty}
     .lead-dark{color:rgba(255,255,255,.6)}
     .gold{color:var(--gold)}
     .center{text-align:center}
@@ -557,6 +557,9 @@
     .cmp-col.win .cmp-h{color:var(--gold-d)}
     .cmp-col .creds{margin-top:10px}
     @media(max-width:700px){.cmp-grid{grid-template-columns:1fr}.wi-dream p{font-size:1rem}}
+
+    .phone-err{display:block;margin-top:6px;font-size:.85rem;font-weight:600;color:#c53030}
+    .section-dark .phone-err,#lead-form .phone-err{color:#ff9b9b}
 
     /* ── ANIMATE ── */
     .fade{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease-ql),transform 1s var(--ease-ql)}
@@ -2389,6 +2392,27 @@ function sendLead(d, makeHook){
   ]);
 }
 
+// טלפון ישראלי תקין: 0 ועוד 8-9 ספרות (מקבל גם +972, רווחים ומקפים)
+function normalizePhone(v){
+  var d = (v || '').replace(/\D/g, '');
+  if (d.indexOf('972') === 0) d = '0' + d.slice(3);
+  return /^0\d{8,9}$/.test(d) ? d : null;
+}
+function checkPhone(input){
+  var old = input.parentNode.querySelector('.phone-err');
+  if (old) old.remove();
+  input.removeAttribute('aria-invalid');
+  if (normalizePhone(input.value)) return true;
+  var m = document.createElement('span');
+  m.className = 'phone-err';
+  m.setAttribute('role', 'alert');
+  m.textContent = 'המספר לא נראה תקין. מספר נייד מתחיל ב-05 ויש בו 10 ספרות.';
+  input.setAttribute('aria-invalid', 'true');
+  input.parentNode.appendChild(m);
+  input.focus();
+  return false;
+}
+
 function handleSubmitShort(e){
   e.preventDefault();
   var form = e.target;
@@ -2398,7 +2422,8 @@ function handleSubmitShort(e){
   var btn = form.querySelector('button[type="submit"]');
   var inputs = form.querySelectorAll('input[type="text"],input[type="tel"]');
   var name = inputs[0].value;
-  var phone = inputs[1].value;
+  if (!checkPhone(inputs[1])) return;
+  var phone = normalizePhone(inputs[1].value);
   var city = inputs[2] ? inputs[2].value : '';
   var message = form.querySelector('textarea') ? form.querySelector('textarea').value : '';
   btn.textContent = 'שולח...';
@@ -2420,7 +2445,8 @@ function handleSubmit(e){
   var btn = form.querySelector('button[type="submit"]');
   var inputs = form.querySelectorAll('input[type="text"],input[type="tel"],textarea');
   var name = inputs[0].value;
-  var phone = inputs[1].value;
+  if (!checkPhone(inputs[1])) return;
+  var phone = normalizePhone(inputs[1].value);
   var city = inputs[2].value;
   var message = inputs[3].value;
 
